@@ -3,436 +3,1571 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StatisPro – Website Statis Profesional, Cepat, dan Terjangkau</title>
+  <title>StatisPro Premium – Website Statis Profesional & Eksklusif</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     :root {
-      --primary: #4B6CB7;
-      --accent: #182848;
-      --highlight: #FF8C42;
-      --bg: #f4f6f9;
-      --text: #333;
-      --white: #fff;
-      --card1: #dfefff;
-      --card2: #ffe0dc;
-      --card3: #e7ffdf;
-      --pro-color: #f39c12;
-      --statis-color: #2980b9;
+      --primary: #1a237e;
+      --primary-light: #303f9f;
+      --accent: #ffab00;
+      --accent-dark: #ff8f00;
+      --highlight: #ffd600;
+      --bg: #f5f5f7;
+      --text: #212121;
+      --text-light: #757575;
+      --white: #ffffff;
+      --black: #000000;
+      --card1: #e8eaf6;
+      --card2: #f3e5f5;
+      --card3: #e0f7fa;
+      --pro-color: #ff9100;
+      --statis-color: #3949ab;
+      --gold: #ffd700;
+      --silver: #c0c0c0;
+      --platinum: #e5e4e2;
+      --glass: rgba(255, 255, 255, 0.15);
+      --glass-dark: rgba(0, 0, 0, 0.2);
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
       background: var(--bg);
       color: var(--text);
-    }
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-    header h1 span.statis { color: var(--statis-color); }
-    header h1 span.pro { color: var(--pro-color); }
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      max-width: 700px;
-      margin-inline: auto;
-    }
-    .btn {
-      background-color: var(--highlight);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn:hover {
-      transform: scale(1.05);
-    }
-    nav {
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    nav img {
-      height: 40px;
-    }
-    .logo-text {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .logo-text .statis { color: var(--statis-color); }
-    .logo-text .pro { color: var(--pro-color); }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: bold;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      width: 0;
-      height: 2px;
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      background: var(--highlight);
-      transition: 0.3s;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-    .mobile-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
-    @media(max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        background: white;
-        height: 100vh;
-        width: 250px;
-        padding-top: 5rem;
-        transition: 0.3s;
-      }
-      .nav-links.open {
-        right: 0;
-      }
-      .mobile-toggle {
-        display: block;
-      }
-      .nav-links a:last-child {
-        display: block;
-      }
-    }
-    @media(min-width: 769px) {
-      .nav-links a:last-child {
-        display: none;
-      }
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
     }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 2rem;
+    p {
+      line-height: 1.6;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      padding: 1.5rem;
-      transition: 0.3s;
-      border-top: 6px solid var(--primary);
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card-accent1 { border-top-color: var(--statis-color); }
-    .card-accent2 { border-top-color: var(--highlight); }
-    .card-accent3 { border-top-color: var(--pro-color); }
-
-    .card h3 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .card p {
-      font-size: 0.95rem;
-    }
-    .card .btn {
-      margin-top: 1rem;
-    }
-
-    footer {
-      background: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 4rem;
-    }
-
-    .popup {
-      display: none;
+    /* Preloader */
+    .preloader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: var(--primary);
+      display: flex;
       justify-content: center;
       align-items: center;
-    }
-    .popup img {
-      max-width: 80%;
-      border: 5px solid white;
-    }
-    .popup.active {
-      display: flex;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
     }
 
-    .slideshow-container {
+    .preloader.fade-out {
+      opacity: 0;
+    }
+
+    .loader {
+      width: 80px;
+      height: 80px;
+      border: 5px solid var(--white);
+      border-radius: 50%;
+      border-top-color: var(--accent);
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
+      text-align: center;
+      padding: 8rem 1rem 6rem;
       position: relative;
+      overflow: hidden;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 600px;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+      opacity: 0.3;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    header h1 span.statis { 
+      color: var(--statis-color);
+      text-shadow: 0 0 10px rgba(57, 73, 171, 0.5);
+    }
+
+    header h1 span.pro { 
+      color: var(--highlight);
+      text-shadow: 0 0 10px rgba(255, 214, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-inline: auto;
+      opacity: 0.9;
+    }
+
+    /* Buttons */
+    .btn {
+      position: relative;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--black);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      box-shadow: 0 8px 24px rgba(255, 171, 0, 0.3);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(255, 171, 0, 0.4);
+    }
+
+    .btn:hover::before {
+      opacity: 1;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+    }
+
+    nav.scrolled {
+      padding: 1rem 3rem;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    nav img {
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    nav:hover img {
+      transform: rotate(10deg);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--statis-color), var(--pro-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      width: 0;
+      height: 3px;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--black);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 171, 0, 0.3);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 171, 0, 0.4);
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Mobile Navigation */
+    @media(max-width: 992px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 6rem 2rem;
+        gap: 2rem;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .mobile-toggle {
+        display: block;
+        z-index: 1000;
+      }
+
+      nav a {
+        font-size: 1.2rem;
+        padding: 0.5rem 0;
+      }
+
+      .nav-cta {
+        margin-top: 1rem;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1400px;
       margin: auto;
+      position: relative;
     }
-    .slideshow-container img {
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      color: var(--primary);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      border-radius: 5px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      display: block;
+      height: 8px;
+      background: var(--primary);
+      z-index: 2;
     }
-    .prev, .next {
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-accent1::before { background: var(--statis-color); }
+    .card-accent2::before { background: var(--accent); }
+    .card-accent3::before { background: var(--pro-color); }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+      padding: 8rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-slider {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .testimonial {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      margin: 0 1rem;
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+
+    .testimonial-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--white);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      margin: 0 auto 1.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+      position: relative;
+    }
+
+    .testimonial-text::before,
+    .testimonial-text::after {
+      content: '"';
+      font-size: 3rem;
+      color: rgba(26, 35, 126, 0.1);
+      position: absolute;
+      font-family: serif;
+    }
+
+    .testimonial-text::before {
+      top: -20px;
+      left: -15px;
+    }
+
+    .testimonial-text::after {
+      bottom: -40px;
+      right: -15px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .slider-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: rgba(26, 35, 126, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slider-dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+
+    .slider-arrow {
       position: absolute;
       top: 50%;
-      padding: 16px;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
       transform: translateY(-50%);
-      z-index: 999;
+      width: 50px;
+      height: 50px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      transition: all 0.3s ease;
     }
-    .prev {
+
+    .slider-arrow:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .slider-arrow.prev {
+      left: -70px;
+    }
+
+    .slider-arrow.next {
+      right: -70px;
+    }
+
+    /* Portfolio */
+    .portfolio-filter {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.8rem 1.8rem;
+      background: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
       left: 0;
-    }
-    .next {
       right: 0;
+      background: linear-gradient(to top, rgba(26, 35, 126, 0.9), transparent);
+      padding: 2rem;
+      color: var(--white);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      transform: translateY(0);
+    }
+
+    .portfolio-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-category {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Pricing */
+    .pricing-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 20px;
+      right: -30px;
+      background: var(--accent);
+      color: var(--black);
+      padding: 0.3rem 3rem;
+      font-weight: 700;
+      transform: rotate(45deg);
+    }
+
+    .pricing-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .pricing-price span {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+      margin-right: 0.5rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-features li {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #eee;
+      color: var(--text-light);
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+      outline: none;
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
+      padding: 6rem 2rem 3rem;
+      position: relative;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+    }
+
+    .footer-column h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      transform: translateX(5px);
+    }
+
+    .footer-links a i {
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      color: var(--black);
+      transform: translateY(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Floating Action Button */
+    .fab {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 10px 30px rgba(255, 171, 0, 0.3);
+      z-index: 999;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .fab:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255, 171, 0, 0.4);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1200px) {
+      .slider-arrow.prev {
+        left: -30px;
+      }
+      .slider-arrow.next {
+        right: -30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 6rem 1rem 4rem;
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+
+      .slider-arrow.prev {
+        left: -15px;
+      }
+      .slider-arrow.next {
+        right: -15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        width: 280px;
+        padding: 5rem 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="loader"></div>
+  </div>
 
-  <nav>
-    <div class="logo-wrap">
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="logo-wrap">
       <img src="statispro.png" alt="StatisPro Logo">
-      <div class="logo-text"><span class="statis">Statis</span><span class="pro">Pro</span></div>
+      <div class="logo-text">StatisPro</div>
     </div>
-    <div class="mobile-toggle" onclick="toggleNav()">☰</div>
+    
+    <div class="mobile-toggle" id="mobileToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    
     <div class="nav-links" id="navLinks">
       <a href="#home">Beranda</a>
       <a href="#layanan">Layanan</a>
       <a href="#harga">Harga</a>
-      <a href="#konsultasi">Konsultasi</a>
+      <a href="#portofolio">Portofolio</a>
       <a href="#testimoni">Testimoni</a>
-	  <a href="#portofolio">Portofolio</a>
-      <a href="javascript:void(0)" onclick="toggleNav()">✖</a>
+      <a href="#kontak">Kontak</a>
+      <a href="https://wa.me/6287874805035" class="nav-cta">
+        <i class="fab fa-whatsapp"></i> Hubungi Kami
+      </a>
     </div>
   </nav>
 
+  <!-- Header -->
   <header id="home">
-    <h1><span class="statis">Statis</span><span class="pro">Pro</span></h1>
-    <p>Kami bantu wujudkan website statis yang profesional, cepat, dan terjangkau — tanpa ribet, langsung online!</p>
-    <a href="#layanan" class="btn">🚀 Lihat Layanan Kami</a>
+    <div class="header-bg"></div>
+    <div class="header-content animate__animated animate__fadeIn">
+      <h1><span class="statis">Statis</span><span class="pro">Pro</span></h1>
+      <p>Solusi premium untuk website statis profesional dengan performa tinggi dan desain eksklusif.</p>
+      <div class="hero-buttons">
+        <a href="#layanan" class="btn animate__animated animate__fadeInUp animate__delay-1s">
+          <i class="fas fa-star"></i> Jelajahi Layanan
+        </a>
+        <a href="https://wa.me/6287874805035" class="btn btn-outline animate__animated animate__fadeInUp animate__delay-2s">
+          <i class="fas fa-phone-alt"></i> Konsultasi Gratis
+        </a>
+      </div>
+    </div>
   </header>
 
-  <section id="kenapa">
+  <!-- Kenapa Memilih Kami -->
+  <section id="kenapa" class="animate delay-1">
     <h2 class="section-title">Kenapa Memilih Kami?</h2>
+    <p class="section-subtitle">Kami memberikan pengalaman berbeda dalam pembuatan website statis premium</p>
+    
     <div class="cards">
       <div class="card card-accent1">
-        <h3>⚡ Cepat & Ringan</h3>
-        <p>Website kamu akan super cepat diakses dan ringan bahkan di koneksi lambat.</p>
+        <div class="card-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>⚡ Performa Optimal</h3>
+        <p>Website dengan kecepatan loading terbaik menggunakan teknologi modern dan optimasi canggih.</p>
       </div>
       <div class="card card-accent2">
-        <h3>💼 Profesional</h3>
-        <p>Desain yang terlihat modern dan kredibel untuk bisnis atau personal branding kamu.</p>
+        <div class="card-icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <h3>🎨 Desain Eksklusif</h3>
+        <p>Setiap website dirancang khusus dengan sentuhan kreatif dan identitas brand yang kuat.</p>
       </div>
       <div class="card card-accent3">
-        <h3>💸 Harga Terjangkau</h3>
-        <p>Tidak perlu mahal untuk tampil keren di dunia digital. Kami buatkan dengan harga bersahabat.</p>
+        <div class="card-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>🔒 Keamanan Premium</h3>
+        <p>Proteksi tingkat tinggi dengan sertifikat SSL dan sistem keamanan terbaru.</p>
       </div>
     </div>
   </section>
 
-  <section id="layanan">
-    <h2 class="section-title">Layanan Kami</h2>
+  <!-- Layanan Kami -->
+  <section id="layanan" class="animate delay-2">
+    <h2 class="section-title">Layanan Premium Kami</h2>
+    <p class="section-subtitle">Pilih paket layanan eksklusif yang sesuai dengan kebutuhan bisnis Anda</p>
+    
     <div class="cards">
       <div class="card card-accent1">
-        <h3>🌐 Website Bisnis</h3>
-        <p>Untuk kebutuhan website bisnis yang profesional dan bisa meningkatkan penjualan kamu.</p>
-        <a href="#portofolio" class="btn">📸 Lihat Portofolio</a>
+        <h3><i class="fas fa-briefcase"></i> Website Bisnis</h3>
+        <p>Solusi lengkap untuk perusahaan dengan fitur-fitur profesional yang meningkatkan kredibilitas bisnis Anda.</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Desain Responsif Eksklusif</li>
+          <li><i class="fas fa-check"></i> Hingga 10 Halaman</li>
+          <li><i class="fas fa-check"></i> Form Kontak Premium</li>
+          <li><i class="fas fa-check"></i> Integrasi Media Sosial</li>
+        </ul>
+        <a href="#portofolio" class="btn">
+          <i class="fas fa-images"></i> Lihat Portofolio
+        </a>
       </div>
       <div class="card card-accent2">
-        <h3>💼 Website Pribadi</h3>
-        <p>Website personal branding untuk menampilkan keahlian dan proyek-proyek kamu.</p>
-       <a href="#portofolio" class="btn">📸 Lihat Portofolio</a>
+        <h3><i class="fas fa-user-tie"></i> Website Profesional</h3>
+        <p>Untuk konsultan, freelancer, dan profesional yang ingin menonjolkan keahlian mereka.</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Desain Personal Branding</li>
+          <li><i class="fas fa-check"></i> Portofolio Interaktif</li>
+          <li><i class="fas fa-check"></i> Sistem Blog Sederhana</li>
+          <li><i class="fas fa-check"></i> Testimonial Section</li>
+        </ul>
+        <a href="#portofolio" class="btn">
+          <i class="fas fa-images"></i> Lihat Portofolio
+        </a>
       </div>
       <div class="card card-accent3">
-        <h3>💻 Website Layanan Jasa</h3>
-        <p>Untuk layanan jasa, seperti konsultasi, joki tugas, joki game, dan lainnya.</p>
-        <a href="#portofolio" class="btn">📸 Lihat Portofolio</a>
+        <h3><i class="fas fa-store"></i> Website Layanan</h3>
+        <p>Platform ideal untuk mempromosikan jasa Anda dengan fitur pemesanan online.</p>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Sistem Pemesanan</li>
+          <li><i class="fas fa-check"></i> Galeri Profesional</li>
+          <li><i class="fas fa-check"></i> Halaman Layanan Detail</li>
+          <li><i class="fas fa-check"></i> Integrasi WhatsApp API</li>
+        </ul>
+        <a href="#portofolio" class="btn">
+          <i class="fas fa-images"></i> Lihat Portofolio
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="harga">
-    <h2 class="section-title">Harga Paket</h2>
+  <!-- Harga Paket -->
+  <section id="harga" class="animate delay-3">
+    <h2 class="section-title">Paket Harga Premium</h2>
+    <p class="section-subtitle">Investasi terbaik untuk kehadiran digital bisnis Anda</p>
+    
     <div class="cards">
-      <div class="card card-accent1">
-        <h3>💰 Paket Basic</h3>
-        <p>Website statis sederhana untuk bisnis kecil atau personal.</p>
-        <p><span style="text-decoration: line-through;">Rp 200K</span> <strong>Rp 150K</strong></p>
-        <a href="https://wa.me/6287874805035?text=Saya%20ingin%20memesan%20Paket%20Basic" class="btn">🛒 Pesan Sekarang</a>
+      <div class="pricing-card">
+        <div class="pricing-title">Silver</div>
+        <div        <div class="pricing-price">
+          <span>Rp 500K</span> Rp 350K
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 5 Halaman Custom</li>
+          <li><i class="fas fa-check"></i> Desain Responsif</li>
+          <li><i class="fas fa-check"></i> Form Kontak</li>
+          <li><i class="fas fa-check"></i> Optimasi SEO Dasar</li>
+          <li><i class="fas fa-check"></i> Revisi 2x</li>
+        </ul>
+        <a href="https://wa.me/6287874805035?text=Saya%20ingin%20memesan%20Paket%20Silver" class="btn">
+          <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+        </a>
       </div>
-      <div class="card card-accent2">
-        <h3>📈 Paket Professional</h3>
-        <p>Website bisnis profesional dengan desain khusus sesuai brand.</p>
-        <p><span style="text-decoration: line-through;">Rp 300K</span> <strong>Rp 250K</strong></p>
-        <a href="https://wa.me/6287874805035?text=Saya%20ingin%20memesan%20Paket%20Professional" class="btn">🛒 Pesan Sekarang</a>
+
+      <div class="pricing-card" style="transform: scale(1.05);">
+        <div class="pricing-badge">POPULER</div>
+        <div class="pricing-title">Gold</div>
+        <div class="pricing-price">
+          <span>Rp 800K</span> Rp 600K
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> 10 Halaman Custom</li>
+          <li><i class="fas fa-check"></i> Animasi Premium</li>
+          <li><i class="fas fa-check"></i> Integrasi Media Sosial</li>
+          <li><i class="fas fa-check"></i> Optimasi SEO Lengkap</li>
+          <li><i class="fas fa-check"></i> Revisi Unlimited</li>
+        </ul>
+        <a href="https://wa.me/6287874805035?text=Saya%20ingin%20memesan%20Paket%20Gold" class="btn">
+          <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+        </a>
       </div>
-      <div class="card card-accent3">
-        <h3>⚡ Paket Ultimate</h3>
-        <p>Website lengkap dengan berbagai fitur custom dan sistem integrasi.</p>
-        <p><span style="text-decoration: line-through;">Rp 400K</span> <strong>Rp 350K</strong></p>
-        <a href="https://wa.me/6287874805035?text=Saya%20ingin%20memesan%20Paket%20Ultimate" class="btn">🛒 Pesan Sekarang</a>
+
+      <div class="pricing-card">
+        <div class="pricing-title">Platinum</div>
+        <div class="pricing-price">
+          <span>Rp 1.2JT</span> Rp 950K
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Halaman Unlimited</li>
+          <li><i class="fas fa-check"></i> Sistem Admin Sederhana</li>
+          <li><i class="fas fa-check"></i> Integrasi Pembayaran</li>
+          <li><i class="fas fa-check"></i> SEO & Analytics Premium</li>
+          <li><i class="fas fa-check"></i> Support Priority</li>
+        </ul>
+        <a href="https://wa.me/6287874805035?text=Saya%20ingin%20memesan%20Paket%20Platinum" class="btn">
+          <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="konsultasi">
-  <h2 class="section-title">Layanan Konsultasi</h2>
-  <div class="card card-accent1" style="text-align: center; max-width: 600px; margin: auto;">
-    <h3>💬 Konsultasi Gratis</h3>
-    <p>Diskusikan ide atau kebutuhan website kamu bersama kami.</p>
-    <a href="https://wa.me/6287874805035?text=Saya%20ingin%20konsultasi%20tentang%20website" class="btn">Konsultasi Sekarang</a>
-  </div>
-</section>
-
-  <section id="testimoni">
-    <h2 class="section-title">Testimoni</h2>
-    <div class="slideshow-container">
-      <div class="mySlides fade">
-        <img src="testi.jpeg" alt="Testimoni 1">
+  <!-- Portofolio -->
+  <section id="portofolio" class="animate delay-1">
+    <h2 class="section-title">Portofolio Eksklusif</h2>
+    <p class="section-subtitle">Karya terbaik kami untuk klien-klien premium</p>
+    
+    <div class="portfolio-filter">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="bisnis">Bisnis</button>
+      <button class="filter-btn" data-filter="profesional">Profesional</button>
+      <button class="filter-btn" data-filter="jasa">Layanan</button>
+    </div>
+    
+    <div class="cards" id="portfolio-grid">
+      <!-- Item 1 -->
+      <div class="portfolio-item" data-category="bisnis">
+        <img src="portfolio1.jpg" alt="Website Bisnis" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Toko Digital</h3>
+          <p class="portfolio-category">Bisnis E-commerce</p>
+          <a href="#" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-external-link-alt"></i> Lihat Demo
+          </a>
+        </div>
       </div>
-      <div class="mySlides fade">
-        <img src="testi2.jpeg" alt="Testimoni 2">
+      
+      <!-- Item 2 -->
+      <div class="portfolio-item" data-category="profesional">
+        <img src="portfolio2.jpg" alt="Website Profesional" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Konsultan Hukum</h3>
+          <p class="portfolio-category">Profesional</p>
+          <a href="#" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-external-link-alt"></i> Lihat Demo
+          </a>
+        </div>
       </div>
-      <div class="mySlides fade">
-        <img src="testi2.jpeg" alt="Testimoni 3">
+      
+      <!-- Item 3 -->
+      <div class="portfolio-item" data-category="jasa">
+        <img src="portfolio3.jpg" alt="Website Layanan" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Jasa Desain</h3>
+          <p class="portfolio-category">Layanan Kreatif</p>
+          <a href="#" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-external-link-alt"></i> Lihat Demo
+          </a>
+        </div>
       </div>
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+      <!-- Item 4 -->
+      <div class="portfolio-item" data-category="bisnis">
+        <img src="portfolio4.jpg" alt="Restoran" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Restoran Premium</h3>
+          <p class="portfolio-category">Bisnis Kuliner</p>
+          <a href="#" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-external-link-alt"></i> Lihat Demo
+          </a>
+        </div>
+      </div>
+      
+      <!-- Item 5 -->
+      <div class="portfolio-item" data-category="profesional">
+        <img src="portfolio5.jpg" alt="Fotografer" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Fotografer</h3>
+          <p class="portfolio-category">Portofolio Profesional</p>
+          <a href="#" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-external-link-alt"></i> Lihat Demo
+          </a>
+        </div>
+      </div>
+      
+      <!-- Item 6 -->
+      <div class="portfolio-item" data-category="jasa">
+        <img src="portfolio6.jpg" alt="Jasa Kebersihan" class="portfolio-img">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Jasa Kebersihan</h3>
+          <p class="portfolio-category">Layanan Rumah Tangga</p>
+          <a href="#" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-external-link-alt"></i> Lihat Demo
+          </a>
+        </div>
+      </div>
     </div>
   </section>
-<section id="portofolio">
-  <h2 class="section-title">Portofolio Kami</h2>
 
-  <div style="text-align:center; margin-bottom: 2rem;">
-    <label for="filter">Filter berdasarkan jenis website:</label>
-    <select id="filter" onchange="filterPortfolio()" style="padding: 0.5rem; border-radius: 8px; border: none; background-color: var(--highlight); color: white; font-weight: bold;">
-  <option value="all">Semua</option>
-  <option value="bisnis">Bisnis</option>
-  <option value="pribadi">Pribadi</option>
-  <option value="jasa">Jasa</option>
-</select>
-
-  </div>
-
-  <div class="cards" id="portfolio-cards">
-    <!-- Card 1 -->
-    <div class="card card-accent1" data-kategori="bisnis">
-      <h3>📊 StatisPro</h3>
-      <img src="statispro.png" alt="Logo TokoDigital" style="width: 100px; margin: 1rem auto;">
-      <p>Website bisnis untuk jasa pembuatan web statis.</p>
-      <a href="https://rampungjoki.github.io/statispro/" target="_blank" class="btn">🔗 Kunjungi Website</a>
+  <!-- Testimoni -->
+  <section id="testimoni" class="testimonials-section animate delay-2">
+    <h2 class="section-title">Apa Kata Klien Kami?</h2>
+    <p class="section-subtitle">Testimoni dari klien-klien premium yang puas dengan layanan kami</p>
+    
+    <div class="testimonial-slider">
+      <div class="testimonial active">
+        <img src="client1.jpg" alt="Client 1" class="testimonial-avatar">
+        <p class="testimonial-text">
+          "StatisPro membuat website perusahaan kami terlihat sangat profesional. Proses pengerjaan cepat dan hasilnya melebihi ekspektasi. Sangat recommended untuk bisnis yang ingin tampil premium!"
+        </p>
+        <div class="testimonial-author">Budi Santoso</div>
+        <div class="testimonial-role">CEO Digital Solutions</div>
+      </div>
+      
+      <div class="testimonial">
+        <img src="client2.jpg" alt="Client 2" class="testimonial-avatar">
+        <p class="testimonial-text">
+          "Sebagai konsultan, website adalah kartu nama digital saya. StatisPro berhasil menciptakan platform yang sempurna untuk menonjolkan keahlian dan pengalaman saya. Desainnya sangat elegan!"
+        </p>
+        <div class="testimonial-author">Dewi Lestari</div>
+        <div class="testimonial-role">Financial Consultant</div>
+      </div>
+      
+      <div class="testimonial">
+        <img src="client3.jpg" alt="Client 3" class="testimonial-avatar">
+        <p class="testimonial-text">
+          "Website jasa yang dibuat StatisPro membantu bisnis saya mendapatkan lebih banyak klien. Fitur pemesanannya sangat user-friendly dan desainnya membuat bisnis saya terlihat lebih kredibel."
+        </p>
+        <div class="testimonial-author">Andi Wijaya</div>
+        <div class="testimonial-role">Pemilik Jasa Desain Interior</div>
+      </div>
+      
+      <div class="slider-controls">
+        <div class="slider-arrow prev" onclick="plusSlides(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-dots">
+          <span class="slider-dot active" onclick="currentSlide(1)"></span>
+          <span class="slider-dot" onclick="currentSlide(2)"></span>
+          <span class="slider-dot" onclick="currentSlide(3)"></span>
+        </div>
+        <div class="slider-arrow next" onclick="plusSlides(1)">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Card 2 -->
-    <div class="card card-accent2" data-kategori="pribadi">
-      <h3>🧑‍💻 TrimsProject</h3>
-      <img src="trims.jpeg" alt="Logo Arya" style="width: 100px; margin: 1rem auto;">
-      <p>Website untuk layanan tugas.</p>
-      <a href="https://rampungjoki.github.io/trims/" target="_blank" class="btn">🔗 Kunjungi Website</a>
+  <!-- Konsultasi -->
+  <section id="konsultasi" class="animate delay-3">
+    <div class="card" style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; text-align: center; padding: 4rem 2rem; border-radius: 20px;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Siap Meningkatkan Bisnis Anda?</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-inline: auto;">
+        Jadwalkan konsultasi gratis dengan tim ahli kami untuk membahas kebutuhan website premium Anda.
+      </p>
+      <a href="https://wa.me/6287874805035" class="btn" style="background: white; color: var(--primary);">
+        <i class="fab fa-whatsapp"></i> Hubungi Kami Sekarang
+      </a>
     </div>
+  </section>
 
-    <!-- Card 3 -->
-    <div class="card card-accent3" data-kategori="jasa">
-      <h3>🛠️ Sebatsz</h3>
-      <img src="sebatsz.jpeg" alt="Logo SolusiJasa" style="width: 100px; margin: 1rem auto;">
-      <p>Website jasa joki game.</p>
-      <a href="https://rampungjoki.github.io/sebatsz/" target="_blank" class="btn">🔗 Kunjungi Website</a>
+  <!-- Kontak -->
+  <section id="kontak" class="animate delay-4">
+    <h2 class="section-title">Hubungi Kami</h2>
+    <p class="section-subtitle">Kami siap membantu mewujudkan website impian Anda</p>
+    
+    <div class="contact-form">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name" class="form-label">Nama Lengkap</label>
+          <input type="text" id="name" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone" class="form-label">Nomor WhatsApp</label>
+          <input type="tel" id="phone" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message" class="form-label">Pesan</label>
+          <textarea id="message" class="form-control" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn" style="width: 100%;">
+          <i class="fas fa-paper-plane"></i> Kirim Pesan
+        </button>
+      </form>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>Bagian dari <strong>rampungin.id</strong> &copy; 2025</p>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Tentang StatisPro</h3>
+        <p>Spesialis pembuatan website statis premium dengan desain eksklusif dan performa optimal untuk bisnis dan profesional.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Layanan</h3>
+        <ul class="footer-links">
+          <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Website Bisnis</a></li>
+          <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Website Profesional</a></li>
+          <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Website Layanan</a></li>
+          <li><a href="#harga"><i class="fas fa-chevron-right"></i> Paket Harga</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Kontak</h3>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/6287874805035"><i class="fab fa-whatsapp"></i> +62 878-7480-5035</a></li>
+          <li><a href="mailto:info@statispro.com"><i class="fas fa-envelope"></i> info@statispro.com</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> StatisPro Premium. All Rights Reserved.</p>
+    </div>
   </footer>
 
+  <!-- Floating Button -->
+  <a href="https://wa.me/6287874805035" class="fab">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- JavaScript -->
   <script>
-    function toggleNav() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
+    // Preloader
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    });
 
-    let slideIndex = 0;
-    showSlides();
-    function plusSlides(n) {
-      slideIndex += n;
-      showSlides();
+    // Create Particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random properties
+        const size = Math.random() * 10 + 5;
+        const posX = Math.random() * 100;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * -20;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}%`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
     }
-    function showSlides() {
-      let slides = document.getElementsByClassName("mySlides");
-      if (slideIndex >= slides.length) { slideIndex = 0 }
-      if (slideIndex < 0) { slideIndex = slides.length - 1 }
-      for (let slide of slides) { slide.style.display = "none"; }
-      slides[slideIndex].style.display = "block";
-    }
-	function filterPortfolio() {
-    const selected = document.getElementById("filter").value;
-    const cards = document.querySelectorAll("#portfolio-cards .card");
-
-    cards.forEach(card => {
-      const kategori = card.getAttribute("data-kategori");
-      if (selected === "all" || kategori === selected) {
-        card.style.display = "block";
+    
+    // Mobile Navigation
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      mobileToggle.innerHTML = navLinks.classList.contains('open') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 992) {
+          navLinks.classList.remove('open');
+          mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
       } else {
-        card.style.display = "none";
+        navbar.classList.remove('scrolled');
       }
     });
-  }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navbarHeight = document.getElementById('navbar').offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update URL without jumping
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
+    
+    // Testimonial Slider
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("testimonial");
+      let dots = document.getElementsByClassName("slider-dot");
+      
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      
+      for (i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      
+      for (i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+      
+      slides[slideIndex-1].classList.add("active");
+      dots[slideIndex-1].classList.add("active");
+    }
+    
+    // Auto slide testimonials
+    setInterval(() => {
+      plusSlides(1);
+    }, 5000);
+    
+    // Portfolio Filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        
+        portfolioItems.forEach(item => {
+          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      
+      // Here you would typically send the data to a server
+      // For demo, we'll just show an alert
+      alert(`Terima kasih ${name}! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda melalui WhatsApp.`);
+      
+      // Clear form
+      contactForm.reset();
+      
+      // Redirect to WhatsApp
+      window.location.href = `https://wa.me/6287874805035?text=Halo,%20saya%20${encodeURIComponent(name)}.%20${encodeURIComponent(message)}.%20Nomor%20saya%20${encodeURIComponent(phone)}.%20Email%20saya%20${encodeURIComponent(email)}`;
+    });
+    
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Initialize particles
+    createParticles();
+    
+    // Animation on scroll
+    const animateElements = document.querySelectorAll('.animate');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    animateElements.forEach(element => {
+      element.style.opacity = 0;
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(element);
+    });
   </script>
 </body>
 </html>
