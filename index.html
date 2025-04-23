@@ -575,6 +575,123 @@
     .slider-arrow.next {
       right: -70px;
     }
+	.testimonial-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      padding: 0 20px;
+    }
+    
+    .testimonial-slide {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.5s ease;
+    }
+    
+    .testimonial-slide.active {
+      display: block;
+      animation: fadeIn 0.8s ease;
+    }
+    
+    .testimonial-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary);
+      margin: 0 auto 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .testimonial-text::before,
+    .testimonial-text::after {
+      content: '"';
+      font-size: 2.5rem;
+      color: rgba(26, 35, 126, 0.1);
+      position: absolute;
+      font-family: serif;
+    }
+    
+    .testimonial-text::before {
+      top: -20px;
+      left: -15px;
+    }
+    
+    .testimonial-text::after {
+      bottom: -30px;
+      right: -15px;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .testimonial-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(26, 35, 126, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+    
+    /* Style untuk tombol sosial media seperti Trims Project */
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
 
     /* Portfolio */
     .portfolio-filter {
@@ -1229,50 +1346,34 @@
   </section>
 
   <!-- Testimoni -->
-  <section id="testimoni" class="testimonials-section animate delay-2">
+  <<section id="testimoni" class="testimonials-section">
     <h2 class="section-title">Apa Kata Klien Kami?</h2>
-    <p class="section-subtitle">Testimoni dari klien-klien premium yang puas dengan layanan kami</p>
+    <p class="section-subtitle">Testimoni jujur dari mereka yang telah menggunakan layanan kami</p>
     
-    <div class="testimonial-slider">
-      <div class="testimonial active">
-        <img src="client1.jpg" alt="Client 1" class="testimonial-avatar">
+    <div class="testimonial-container">
+      <!-- Testimoni 1 -->
+      <div class="testimonial-slide active">
+        <img src="testi.jpeg" alt="Testimoni 1" class="testimonial-image">
         <p class="testimonial-text">
-          "StatisPro membuat website perusahaan kami terlihat sangat profesional. Proses pengerjaan cepat dan hasilnya melebihi ekspektasi. Sangat recommended untuk bisnis yang ingin tampil premium!"
+          "Bimbingan skripsi dari StatisPro sangat membantu. Pembimbing saya puas dengan analisis data yang diberikan. Revisi dikerjakan dengan cepat dan akurat."
+        </p>
+        <div class="testimonial-author">Dian Sastro</div>
+        <div class="testimonial-role">Mahasiswa S1 Universitas Indonesia</div>
+      </div>
+      
+      <!-- Testimoni 2 -->
+      <div class="testimonial-slide">
+        <img src="testi2.jpeg" alt="Testimoni 2" class="testimonial-image">
+        <p class="testimonial-text">
+          "Hasil analisis data SPSS untuk penelitian saya sangat memuaskan. Penjelasannya detail dan mudah dipahami. Sangat recommended untuk yang kesulitan dengan statistik."
         </p>
         <div class="testimonial-author">Budi Santoso</div>
-        <div class="testimonial-role">CEO Digital Solutions</div>
+        <div class="testimonial-role">Peneliti Independen</div>
       </div>
       
-      <div class="testimonial">
-        <img src="client2.jpg" alt="Client 2" class="testimonial-avatar">
-        <p class="testimonial-text">
-          "Sebagai konsultan, website adalah kartu nama digital saya. StatisPro berhasil menciptakan platform yang sempurna untuk menonjolkan keahlian dan pengalaman saya. Desainnya sangat elegan!"
-        </p>
-        <div class="testimonial-author">Dewi Lestari</div>
-        <div class="testimonial-role">Financial Consultant</div>
-      </div>
-      
-      <div class="testimonial">
-        <img src="client3.jpg" alt="Client 3" class="testimonial-avatar">
-        <p class="testimonial-text">
-          "Website jasa yang dibuat StatisPro membantu bisnis saya mendapatkan lebih banyak klien. Fitur pemesanannya sangat user-friendly dan desainnya membuat bisnis saya terlihat lebih kredibel."
-        </p>
-        <div class="testimonial-author">Andi Wijaya</div>
-        <div class="testimonial-role">Pemilik Jasa Desain Interior</div>
-      </div>
-      
-      <div class="slider-controls">
-        <div class="slider-arrow prev" onclick="plusSlides(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </div>
-        <div class="slider-dots">
-          <span class="slider-dot active" onclick="currentSlide(1)"></span>
-          <span class="slider-dot" onclick="currentSlide(2)"></span>
-          <span class="slider-dot" onclick="currentSlide(3)"></span>
-        </div>
-        <div class="slider-arrow next" onclick="plusSlides(1)">
-          <i class="fas fa-chevron-right"></i>
-        </div>
+      <div class="testimonial-nav">
+        <div class="testimonial-dot active" onclick="showTestimonial(0)"></div>
+        <div class="testimonial-dot" onclick="showTestimonial(1)"></div>
       </div>
     </div>
   </section>
@@ -1459,41 +1560,24 @@
       });
     });
     
-    // Testimonial Slider
-    let slideIndex = 1;
-    showSlides(slideIndex);
+   // Testimonial Slider
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-dot');
     
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("testimonial");
-      let dots = document.getElementsByClassName("slider-dot");
+    function showTestimonial(index) {
+      testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
       
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      
-      for (i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-      }
-      
-      for (i = 0; i < dots.length; i++) {
-        dots[i].classList.remove("active");
-      }
-      
-      slides[slideIndex-1].classList.add("active");
-      dots[slideIndex-1].classList.add("active");
+      currentTestimonial = index;
+      testimonials[currentTestimonial].classList.add('active');
+      dots[currentTestimonial].classList.add('active');
     }
     
     // Auto slide testimonials
     setInterval(() => {
-      plusSlides(1);
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
     }, 5000);
     
     // Portfolio Filter
